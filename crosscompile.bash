@@ -62,6 +62,9 @@ function go-build-all {
 	    echo "*** go-build-all FAILED on $FAILURES ***"
 	    return 1
 	fi
+	for NAME in $OUTPUT-windows-*; do
+		mv $NAME ${NAME}.exe
+	done
 }
 
 for PLATFORM in $PLATFORMS; do
